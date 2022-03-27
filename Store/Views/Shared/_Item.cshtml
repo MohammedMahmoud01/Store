@@ -1,0 +1,32 @@
+﻿@model TbItem 
+<div class="product-box">
+    <div class="img-wrapper">
+        <div class="front">
+            <a asp-action="ItemDetails" asp-route-Id="@Model.ItemId">
+                <img src="@string.Format("/Uploads/{0}" , Model.ImageName)"
+                     style="width: 250px; height: 300px"  alt="">
+            </a>
+        </div>
+        <div class="back">
+            <a asp-action="ItemDetails" asp-route-Id="@Model.ItemId">
+                <img src="@string.Format("/Uploads/{0}" , Model.ImageName)"
+                      style="width: 250px; height: 300px" alt="">
+            </a>
+        </div>
+        <div class="cart-info cart-wrap">
+            <a asp-controller="Order" asp-action="AddToCart" asp-route-Id="@Model.ItemId">
+                <i class="ti-shopping-cart"></i>
+            </a>
+            <a asp-controller="Order" asp-action="AddToCart" asp-route-Id="@Model.ItemId"
+               title="Add to Wishlist">
+                <i class="ti-heart" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <div class="product-detail">
+        <a asp-action="ItemDetails" asp-route-Id="@Model.ItemId">
+            <h6>@Model.ItemName</h6>
+        </a>
+        <h4>$@Model.SalesPrice</h4>
+    </div>
+</div>  

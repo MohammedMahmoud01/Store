@@ -1,0 +1,139 @@
+﻿@model ItemDetailsModel
+@{
+    Layout = "_Layout";
+}
+@section Styles
+{
+
+}
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>product</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">product</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section>
+    <div class="collection-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="product-slick">
+                        @foreach (var item in Model.Item.TbImages)
+                        {
+                            <div>
+                                <img src="@string.Format("/Uploads/{0}" , item.ImageName)" alt=""
+                                    style="width:auto ; height: 500px">
+                            </div>
+                        }
+                    </div>
+                    <div class="row">
+                        <div class="col-12 p-0">
+                            <div class="slider-nav">
+                                @foreach (var item in Model.Item.TbImages)
+                                {
+                                    <div>
+                                        <img src="@string.Format("/Uploads/{0}" , item.ImageName)" alt=""
+                                            style="width: 150px ; height: 170px">
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 rtl-text">
+                    <div class="product-right">
+                        <h2 class="mb-0">@Model.Item.ItemName</h2>
+                        <h3>$@Model.Item.SalesPrice</h3>
+                        <div class="product-buttons">
+                            <a asp-controller="Order" asp-action="AddToCart" asp-route-Id="@Model.Item.ItemId"
+                               class="btn btn-solid">add to cart</a>
+                            <a asp-controller="Order" asp-action="AddToCart" asp-route-Id="@Model.Item.ItemId"  class="btn btn-solid">buy now</a>
+                        </div>
+                        <div class="border-product">
+                            <h6 class="product-title">
+                                @Model.Item.SubCategory.SubCategoryName
+                            </h6>
+                            <p>
+                               @Model.Item.Notes
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->
+
+<!-- product section start -->
+<section class="section-b-space ratio_asos">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 product-related">
+                <h2>related products</h2>
+            </div>
+        </div>
+        <div class="row search-product">
+            @foreach (var item in Model.lstRelatedItems)
+            {
+                <div class="col-xl-2 col-md-4 col-sm-6">
+                    <div class="product-box">
+                        <div class="img-wrapper">
+                            <div class="front">
+                                <a asp-action="ItemDetails" asp-route-Id="@item.ItemId">
+                                    <img src="@string.Format("/Uploads/{0}" , item.ImageName)"
+                                        class="img-fluid blur-up lazyload bg-img" alt="">
+                                </a>
+                            </div>
+                            <div class="back">
+                                <a asp-action="ItemDetails" asp-route-Id="@item.ItemId">
+                                    <img src="@string.Format("/Uploads/{0}" , item.ImageName)"
+                                         class="img-fluid blur-up lazyload bg-img"  alt="">
+                                </a>
+                            </div>
+                            <div class="cart-info cart-wrap">
+                                <a asp-controller="Order" asp-action="AddToCart" asp-route-Id="@item.ItemId">
+                                    <i class="ti-shopping-cart"></i>
+                                </a>
+                                <a asp-controller="Order" asp-action="AddToCart" asp-route-Id="@item.ItemId"
+                                   title="Add to Wishlist">
+                                    <i class="ti-heart" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-detail">
+                            <a asp-action="ItemDetails" asp-route-Id="@item.ItemId">
+                                <h6>@item.ItemName</h6>
+                            </a>
+                            <h4>$@item.SalesPrice</h4>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- product section end -->
+
+@section Scripts
+{
+    <!-- Zoom js-->
+    <script src="../assets/js/jquery.elevatezoom.js"></script>
+
+}

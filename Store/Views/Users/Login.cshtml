@@ -1,0 +1,46 @@
+﻿@model UserModel
+@{
+    Layout = "_AdminLayout";
+}
+<div class="login-box">
+    <div class="login-logo">
+        <a asp-controller="Home" asp-action="Index"><b>Store</b>Website</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+
+            <form asp-action="LoginAction" method="post" role="form">
+                <div class="input-group mb-3">
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Email">
+                    <span asp-validation-for="Email"></span>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Password">
+                    <span asp-validation-for="Password"></span>
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left:100px">
+                    <input  type="submit" value="Submit" class="mx-1 btn  btn-success" />
+                    <input type="reset" value="Reset" class="btn  btn-danger" />
+                    <input type="hidden" asp-for="ReturnUrl" />
+                </div>
+            </form>
+            <p class="mb-0">
+                <a asp-action="Register" class="text-center">Register a new membership</a>
+            </p>
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+</div>
+<!-- /.login-box -->

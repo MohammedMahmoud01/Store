@@ -1,0 +1,115 @@
+﻿@model ShoopingCartModel
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> signIn
+@{ Layout = "_Layout"; }
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>cart</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="breadcrumb-item active">cart</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!--section start-->
+<section class="cart-section section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table cart-table table-responsive-xs">
+                    <thead>
+                        <tr class="table-head">
+                            <th scope="col">Item Name</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Remove</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.lstItems)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a >@item.ItemName</a>
+                                </td>
+                                <td>
+                                    <a href="#"><img src="@string.Format("/Uploads/{0}" , item.ImageName)" alt=""></a>
+                                </td>
+                                <td>
+                                    <h2>$@item.Price</h2>
+                                </td>
+                                <td>
+                                    <input type="text" onkeyup="ChangeUp(this);" class="form-control cartInput" value="@item.Qty" 
+                                        data-price="@item.Price"   oninput="this.value = this.value.replace(/[^0-9]/g, '');
+                                        this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                  
+                                </td>
+                                <td>
+                                    <h2 class="td-color">$@item.Total</h2>
+                                </td>
+                                <td><a asp-action="RemoveItem" asp-route-Id="@item.ItemId" class="icon"><i class="ti-close"></i></a></td>
+                            </tr>
+                        </tbody>
+                    }
+
+                </table>
+                <table class="table cart-table table-responsive-md">
+                    <tfoot>
+                        <tr>
+                            <td>Total Price :</td>
+                            <td>
+                                <h2 id="total1">$@Model.Total</h2>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="row cart-buttons">
+
+            <div class="col-6"><a asp-controller="Items" asp-action="ItemsList" class="btn btn-solid">continue shopping</a></div>
+             
+            @if (!signIn.IsSignedIn(User))
+            {
+                <div class="col-6"><a asp-controller="Users" asp-action="Login" class="btn btn-solid">SignIn first</a></div>
+            }
+            @if (signIn.IsSignedIn(User))
+            {
+                <div class="col-6"><a class="btn btn-solid">check out</a></div>
+            }
+        </div>
+    </div>
+</section>
+<!--section end-->
+
+@section Scripts
+{
+    <script>
+        function ChangeUp(input) {
+            let price = parseFloat($(input).data("price"));
+
+            $(input).closest("td").next("td").contents("h2").html(price * parseFloat($(input).val()));
+            UpdateTotals();
+        }
+        function UpdateTotals() {
+            let total = 0;
+            $(".cartInput").each(function (index, element) {
+                total = total + parseFloat($(element).val()) * parseFloat($(element).data("price"));
+            });
+            $("#total1").html(total);
+        }
+    </script>
+}

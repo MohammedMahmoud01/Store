@@ -1,0 +1,102 @@
+﻿@model List<ItemImageModel>
+@section Styles
+{
+    <link href="~/css/dataTable.min.css" rel="stylesheet" />
+}
+
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Item Image Data</h3>
+                        <br />
+                        <a asp-action="Edit" class="btn btn-info my-2">New Item Image</a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ItemId</th>
+                                    <th>ItemName</th>
+                                    <th>ImageId</th>
+                                    <th>Image</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var itemImage in Model)
+                                {
+                                    <tr>
+                                        <td>@itemImage.ItemId</td>
+                                        <td>@itemImage.ItemName</td>
+                                        <td>@itemImage.ImageId</td>
+                                        <td>
+                                            <img src="@string.Format("/Uploads/{0}",itemImage.ImageName)" style="width:100%" height="50" />
+                                        </td>
+                                        <td><a asp-action="Edit" asp-route-Id="@itemImage.ImageId" class="btn btn-info">Edit</a></td>
+                                        <td><a asp-action="Delete" asp-route-Id="@itemImage.ImageId" class="btn btn-danger">Delete</a></td>
+
+                                    </tr>
+                                }
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>ItemId</th>
+                                    <th>ItemName</th>
+                                    <th>ImageId</th>
+                                    <th>Image</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+
+
+
+
+@section Scripts
+{
+
+    <script src="~/js/dataTable.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+}

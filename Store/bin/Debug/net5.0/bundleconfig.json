@@ -1,0 +1,30 @@
+[
+  {
+    "outputFileName": "wwwroot/css/HomePage.min.css",
+    "inputFiles": [
+      "assets/css/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/HomePage.min.js",
+    "inputFiles": [
+      "wwwroot/assets/js/jquery-3.3.1.min.js",
+      "wwwroot/assets/js/jquery-ui.min.js",
+      "wwwroot/assets/js/jquery.exitintent.js",
+      "wwwroot/assets/js/exit.js",
+      "wwwroot/assets/js/popper.min.js",
+      "wwwroot/assets/js/slick.js",
+      "wwwroot/assets/js/menu.js",
+      "wwwroot/assets/js/lazysizes.min.js",
+      "wwwroot/assets/js/bootstrap.js",
+      "wwwroot/assets/js/bootstrap-notify.min.js",
+      "wwwroot/assets/js/fly-cart.js"
+
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

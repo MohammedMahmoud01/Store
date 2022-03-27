@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9a0f8e33-d38a-4deb-ba15-a13d21470031": {
+      "ProjectGuid": "9a0f8e33-d38a-4deb-ba15-a13d21470031",
+      "DisplayName": "Store",
+      "ColorIndex": 0
+    },
+    "c58958b2-044a-432e-b557-a234d16aacb2": {
+      "ProjectGuid": "c58958b2-044a-432e-b557-a234d16aacb2",
+      "DisplayName": "Domains",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

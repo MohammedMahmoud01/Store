@@ -1,0 +1,55 @@
+﻿@model TbCategory
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Slider Form</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form enctype="multipart/form-data"
+                      method="post" role="form" asp-controller="Category" asp-action="Save">
+                    <div class="card-body">
+                        <div class="form-group">
+                            @if(Model != null)
+                            {
+                                <input type="hidden" asp-for="CategoryId" />
+                            }
+                        </div>
+                        <div class="form-group">
+                            <label>Category Name</label>
+                            <input asp-for="CategoryName" type="text"
+                                   class="form-control" placeholder="Enter Category Name">
+                            <span class="col-form-label text-danger" asp-validation-for="CategoryName"></span>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <a class="btn btn-info mx-4" asp-action="CategoryDT">Back</a>
+                    </div>
+                </form>
+            </div>
+            <!-- /.card -->
+        </div>
+
+    </div>
+    <!-- /.row -->
+</div><!-- /.container-fluid -->
+
+
+
+@section Scripts
+    {
+    <script src=".~/Admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
+}
+<!-- bs-custom-file-input -->

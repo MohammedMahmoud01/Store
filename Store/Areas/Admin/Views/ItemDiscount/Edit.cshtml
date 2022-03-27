@@ -1,0 +1,168 @@
+﻿@model TbItemDiscount
+
+@section Styles
+{
+  <link rel="stylesheet" href="~/Admin/plugins/daterangepicker/daterangepicker.css">
+
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Item Form</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form enctype="multipart/form-data"
+                      method="post" role="form" asp-controller="ItemDiscount" asp-action="Save">
+                    <div class="card-body">
+                        <div class="form-group">
+                            @if(Model != null)
+                            {
+                                <input type="hidden" asp-for="ItemDiscountId" />
+                            }
+                        </div>
+                         <div class="form-group">
+                            <label>Item Name</label>
+                            <select class="form-control" asp-for="ItemId"
+                                    asp-items="@(new SelectList(ViewBag.ItemsName,"ItemId","ItemName"))">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Sales Price</label>
+                            <input asp-for="SalesPrice"
+                                   type="number" class="form-control" placeholder="Enter Sales Price">
+                            <span class="col-form-label text-danger" asp-validation-for="SalesPrice"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Discount Price</label>
+                            <input asp-for="DiscountPrice" type="number"
+                                   class="form-control" placeholder="Enter Discount Price">
+                            <span class="col-form-label text-danger" asp-validation-for="DiscountPrice"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Discount Percent</label>
+                            <input asp-for="DiscountPercent" type="number"
+                                   class="form-control" placeholder="Enter Discount Percent">
+                            <span class="col-form-label text-danger" asp-validation-for="DiscountPercent"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">File input</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input asp-for="ImageName" type="file" name="Files" class="custom-file-input">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <span class="col-form-label text-danger" asp-validation-for="DiscountPercent"></span>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
+                            </div>
+                        </div>
+
+                          <div class="form-group">
+                            <label>Start Date</label>
+                            <input asp-for="StartDate" type="text"
+                                   class="form-control" placeholder="Enter Discount Price">
+                            <span class="col-form-label text-danger" asp-validation-for="StartDate"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <input asp-for="EndDate" type="text"
+                                   class="form-control" placeholder="Enter Discount Percent">
+                            <span class="col-form-label text-danger" asp-validation-for="EndDate"></span>
+                        </div>
+               
+
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <a class="btn btn-info mx-4" asp-action="ItemDiscountDT">Back</a>
+                    </div>
+                </form>
+            </div>
+            <!-- /.card -->
+        </div>
+
+    </div>
+    <!-- /.row -->
+</div>
+
+ 
+
+
+
+@section Scripts
+{
+
+<!-- date-range-picker -->
+<script src="~/Admin/plugins/daterangepicker/daterangepicker.js"></script>
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+
+    //Date and time picker
+    $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+</script>
+
+
+<script>
+    $(function () {
+        bsCustomFileInput.init();
+    });
+</script>
+}
+
