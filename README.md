@@ -30,4 +30,3 @@ Built with ASP.NET Core and SQL Server, this e-commerce website application come
 ---
 
 Feel free to explore the repository and watch the demo to see the application in action. Contributions and feedback are welcome!
-```
