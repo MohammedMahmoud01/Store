@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "F:\\MyWork\\Asp.net Core\\Store\\Store\\Store.csproj": {}
+    "D:\\MyWork\\Asp.net Core\\Store\\Store\\Store.csproj": {}
   },
   "projects": {
-    "F:\\MyWork\\Asp.net Core\\Store\\Domains\\Domains.csproj": {
+    "D:\\MyWork\\Asp.net Core\\Store\\Domains\\Domains.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\MyWork\\Asp.net Core\\Store\\Domains\\Domains.csproj",
+        "projectUniqueName": "D:\\MyWork\\Asp.net Core\\Store\\Domains\\Domains.csproj",
         "projectName": "Domains",
-        "projectPath": "F:\\MyWork\\Asp.net Core\\Store\\Domains\\Domains.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "F:\\MyWork\\Asp.net Core\\Store\\Domains\\obj\\",
+        "projectPath": "D:\\MyWork\\Asp.net Core\\Store\\Domains\\Domains.csproj",
+        "packagesPath": "C:\\Users\\Eng-Mohamed\\.nuget\\packages\\",
+        "outputPath": "D:\\MyWork\\Asp.net Core\\Store\\Domains\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Eng-Mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,6 +39,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -45,45 +55,65 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\MyWork\\Asp.net Core\\Store\\Store\\Store.csproj": {
+    "D:\\MyWork\\Asp.net Core\\Store\\Store\\Store.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\MyWork\\Asp.net Core\\Store\\Store\\Store.csproj",
+        "projectUniqueName": "D:\\MyWork\\Asp.net Core\\Store\\Store\\Store.csproj",
         "projectName": "Store",
-        "projectPath": "F:\\MyWork\\Asp.net Core\\Store\\Store\\Store.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "F:\\MyWork\\Asp.net Core\\Store\\Store\\obj\\",
+        "projectPath": "D:\\MyWork\\Asp.net Core\\Store\\Store\\Store.csproj",
+        "packagesPath": "C:\\Users\\Eng-Mohamed\\.nuget\\packages\\",
+        "outputPath": "D:\\MyWork\\Asp.net Core\\Store\\Store\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Eng-Mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\MyWork\\Asp.net Core\\Store\\Domains\\Domains.csproj": {
-                "projectPath": "F:\\MyWork\\Asp.net Core\\Store\\Domains\\Domains.csproj"
+              "D:\\MyWork\\Asp.net Core\\Store\\Domains\\Domains.csproj": {
+                "projectPath": "D:\\MyWork\\Asp.net Core\\Store\\Domains\\Domains.csproj"
               }
             }
           }
@@ -92,11 +122,16 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "BuildBundlerMinifier": {
               "target": "Package",
@@ -104,17 +139,19 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.13, )"
+              "version": "[8.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.12, )"
+              "version": "[8.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.12, )"
+              "version": "[8.0.8, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "X.PagedList.Mvc.Core": {
               "target": "Package",
@@ -127,7 +164,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -139,7 +177,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

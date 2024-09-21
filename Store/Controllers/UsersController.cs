@@ -55,6 +55,9 @@ namespace Store.Controllers
         [HttpPost]
         public async Task<IActionResult> LoginAction(UserModel userModel)
         {
+            if (userModel.Email == null || userModel.Password == null)
+                return Redirect("/Users/Login");
+
             var result = await SignInManager.PasswordSignInAsync(userModel.Email , 
                 userModel.Password , true , true);
 
@@ -64,7 +67,7 @@ namespace Store.Controllers
             if (result.Succeeded)
                 return Redirect(userModel.ReturnUrl);
             else
-                return View("Register", userModel);
+                return View("Login", userModel);
 
         }
         public async Task<IActionResult> Logout()

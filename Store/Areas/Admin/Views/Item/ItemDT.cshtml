@@ -45,7 +45,7 @@
                                             <img src="@string.Format("/Uploads/{0}",item.ImageName)" style="width:100%" height="50" />
                                         </td>
                                         <td> <a asp-action="Edit" asp-route-Id="@item.ItemId" class="btn btn-info">Edit</a></td>
-                                        <td> <a onclick="confirm(" Are you sure");" asp-action="Delete" asp-route-Id="@item.ItemId" class="btn btn-danger">Delete</a></td>
+                                        <td> <a onclick="confirm('are you sure?')" asp-action="Delete" asp-route-Id="@item.ItemId" class="btn btn-danger">Delete</a></td>
                                     </tr>
                                 }
 

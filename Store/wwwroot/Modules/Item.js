@@ -4,7 +4,7 @@ let ClsItems =
 {
     LoadItems: function () {
         Helper.AjaxCallGet("/api/itemsapi", {}, "json", function (data) {
-            console.log(data);
+            //console.log(data);
             Items = data;
             let htmlData = "";
             for (let i = 0; i < data.length; i++) {
@@ -23,10 +23,10 @@ let ClsItems =
             <div class="product-box" > \
                 <div class="img-wrapper"> \
                     <div class="front"> \
-                        <a href="#"><img src="/Uploads/'+ item.imageName + '" style="width: 100% ; height:200px" alt=""></a>\
+                        <a href="/Home/ItemDetails/'+ item.itemId + '"><img src="/Uploads/'+ item.imageName + '" style="width: 100% ; height:200px" alt=""></a>\
                                                         </div>\
                         <div class="back">\
-                            <a href="#"><img src="/Uploads/'+ item.imageName + '" style="width: 100% ; height:200px" alt=""></a>\
+                            <a href="/Home/ItemDetails/'+ item.itemId + '"><img src="/Uploads/'+ item.imageName + '" style="width: 100% ; height:200px" alt=""></a>\
                                                         </div>\
                             <div class="cart-info cart-wrap">\
                                 <a href="/Home/ItemDetails/'+ item.itemId + '">\
@@ -61,7 +61,7 @@ let ClsItems =
         let newItems = $.grep(Items, function (n, i) { // just use arr
             return n.subCategoryId === catId;
         });
-        console.log(newItems);
+        //console.log(newItems);
         let htmlData = "";
         for (let i = 0; i < newItems.length; i++) {
             htmlData = htmlData + ClsItems.Template1(newItems[i]);

@@ -2,7 +2,7 @@
 {
     LoadCategories: function () {
         Helper.AjaxCallGet("/api/CategoryApi", {}, "json", function (data) {
-            console.log(data);
+            //console.log(data);
             let htmlData = "";
             for (let i = 0; i < data.length; i++) {
                 htmlData = htmlData + ClsCategory.Template2(data[i]);
