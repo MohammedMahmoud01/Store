@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: store2
+    ports:
+      - "8091:8090"  # Map container port 80 to host port 5000
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Server = sql_server,1433;Database=Store;User Id=sa;Password=@A12344321;Encrypt=False;Persist Security Info=False;;
+    networks:
+        - appnetwork
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server
+    ports:
+      - "1432:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=@A12344321
+    volumes:
+      - sql_data:/var/opt/mssql
+    networks:
+        - appnetwork
+volumes:
+  sql_data:
+networks:
+    appnetwork:
